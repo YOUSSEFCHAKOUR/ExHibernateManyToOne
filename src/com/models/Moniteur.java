@@ -31,7 +31,9 @@ public class Moniteur {
 	
 	private String sexe;
 
-	@OneToMany(mappedBy="Moniteur",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="moniteur",fetch=FetchType.EAGER)
+	private List<lecon> lstlecon;
+	
 	
 	public int getId_moniteur() {
 		return id_moniteur;
@@ -73,22 +75,38 @@ public class Moniteur {
 		this.sexe = sexe;
 	}
 
-	public Moniteur(int id_moniteur, String nom_moniteur, String prenom_moniteur, Date date_naissance, String sexe) {
+	
+	
+	public List<lecon> getLstlecon() {
+		return lstlecon;
+	}
+
+	public void setLstlecon(List<lecon> lstlecon) {
+		this.lstlecon = lstlecon;
+	}
+	
+
+	public Moniteur(int id_moniteur, String nom_moniteur, String prenom_moniteur, Date date_naissance, String sexe,
+			List<lecon> lstlecon) {
 		super();
 		this.id_moniteur = id_moniteur;
 		this.nom_moniteur = nom_moniteur;
 		this.prenom_moniteur = prenom_moniteur;
 		this.date_naissance = date_naissance;
 		this.sexe = sexe;
+		this.lstlecon = lstlecon;
 	}
-	
+
 	public Moniteur() {}
 
 	@Override
 	public String toString() {
 		return "Moniteur [id_moniteur=" + id_moniteur + ", nom_moniteur=" + nom_moniteur + ", prenom_moniteur="
-				+ prenom_moniteur + ", date_naissance=" + date_naissance + ", sexe=" + sexe + "]";
+				+ prenom_moniteur + ", date_naissance=" + date_naissance + ", sexe=" + sexe + ", lstlecon=" + lstlecon
+				+ "]";
 	}
+
+	
 	
 	
 

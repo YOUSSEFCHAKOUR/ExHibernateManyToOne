@@ -27,9 +27,16 @@ public class Eleve {
 	private int CP;
 	private String ville;
 	
-	@OneToMany(mappedBy="Eleve",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="eleve",fetch=FetchType.EAGER)
 	
+	private  List<lecon> lstlecon;
 	
+	public List<lecon> getLstlecon() {
+		return lstlecon;
+	}
+	public void setLstlecon(List<lecon> lstlecon) {
+		this.lstlecon = lstlecon;
+	}
 	public int getId_eleve() {
 		return id_eleve;
 	}
@@ -66,7 +73,9 @@ public class Eleve {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public Eleve(int id_eleve, String nom, String prenom, String adress, int cP, String ville) {
+	
+	
+	public Eleve(int id_eleve, String nom, String prenom, String adress, int cP, String ville, List<lecon> lstlecon) {
 		super();
 		this.id_eleve = id_eleve;
 		this.nom = nom;
@@ -74,14 +83,15 @@ public class Eleve {
 		this.adress = adress;
 		CP = cP;
 		this.ville = ville;
+		this.lstlecon = lstlecon;
 	}
-	
 	public Eleve() {}
 	@Override
 	public String toString() {
 		return "Eleve [id_eleve=" + id_eleve + ", nom=" + nom + ", prenom=" + prenom + ", adress=" + adress + ", CP="
-				+ CP + ", ville=" + ville + "]";
+				+ CP + ", ville=" + ville + ", lstlecon=" + lstlecon + "]";
 	}
+	
 	
 
 }

@@ -27,9 +27,15 @@ public class Voiture {
 	
 	private Date date_mise_circulation;
 	
-	@OneToMany(mappedBy="Voiture",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="voiture",fetch=FetchType.EAGER)
+	private List<lecon> lstlecon;
 	
-	
+	public List<lecon> getLstlecon() {
+		return lstlecon;
+	}
+	public void setLstlecon(List<lecon> lstlecon) {
+		this.lstlecon = lstlecon;
+	}
 	public int getNum_imm_voiture() {
 		return num_imm_voiture;
 	}
@@ -54,20 +60,23 @@ public class Voiture {
 	public void setDate_mise_circulation(Date date_mise_circulation) {
 		this.date_mise_circulation = date_mise_circulation;
 	}
-	public Voiture(int num_imm_voiture, String modele, String coleur, Date date_mise_circulation) {
+	
+	public Voiture(int num_imm_voiture, String modele, String coleur, Date date_mise_circulation,
+			List<lecon> lstlecon) {
 		super();
 		this.num_imm_voiture = num_imm_voiture;
 		this.modele = modele;
 		this.coleur = coleur;
 		this.date_mise_circulation = date_mise_circulation;
+		this.lstlecon = lstlecon;
 	}
-	
 	public Voiture() {}
 	@Override
 	public String toString() {
 		return "Voiture [num_imm_voiture=" + num_imm_voiture + ", modele=" + modele + ", coleur=" + coleur
-				+ ", date_mise_circulation=" + date_mise_circulation + "]";
+				+ ", date_mise_circulation=" + date_mise_circulation + ", lstlecon=" + lstlecon + "]";
 	}
+	
 	
 	
 }

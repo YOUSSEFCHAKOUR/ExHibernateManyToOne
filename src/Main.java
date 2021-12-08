@@ -19,10 +19,10 @@ public class Main {
 		
 		Transaction t=s.beginTransaction();
 		
-		List<lecon> lst=s.createQuery("from lecon").list();
+		List<Eleve> lst=s.createQuery("from Eleve").list();
 		
-		for(lecon l:lst)
-			System.out.println(l.getId_lecon()+"_"+l.getEleve());
+		for(Eleve l:lst)
+			System.out.println(l.getNom()+"_"+l.getLstlecon().size());
 		t.commit();
 		s.close();
 
